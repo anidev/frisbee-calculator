@@ -15,8 +15,7 @@ double simulate_flight(double vx0,double vy0,double angle,double dt,double heigh
 	double vx=vx0;
 	double vy=vy0;
 	double time=0;
-//	for(int i=0;y<=height;i++) {
-	while(true) {
+	for(int i=0;y<=height;i++) {
 		/*
 		 * dvx = delta x velocity, d = density, m = mass, A = surface area,
 		 *       D = drag coefficient, dt = delta time, v = previous x velocity
@@ -35,7 +34,6 @@ double simulate_flight(double vx0,double vy0,double angle,double dt,double heigh
 		vy+=dvy;
 		x+=vx*dt;
 		y+=vy*dt;
-		std::cout<<y<<std::endl;
 	}
 	return x;
 }
