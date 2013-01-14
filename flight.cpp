@@ -34,6 +34,9 @@ double simulate_flight(double vx0,double vy0,double angle,double dt,double heigh
 		vy+=dvy;
 		x+=vx*dt;
 		y+=vy*dt;
+		if(y<0) {
+			return -1;
+		}
 	}
 	return x;
 }
