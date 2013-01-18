@@ -1,11 +1,8 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
+#include "convert.h"
 #include "flight.h"
-
-double torad(double degrees) {
-	return degrees*(M_PI/180);
-}
 
 double simulate_flight(double vx0,double vy0,double angle,double dt,double height,double mass) {
 	double lift=LIFT0+LIFTA*torad(angle);
