@@ -11,6 +11,7 @@ static const double ANGLE_STEP=1.0;
 
 static const double DELTAT=0.001;
 
-void do_goals_calculations(double);
+void do_goals_calculations(double,double);
+void do_find_velocity(double,double,double);
 
 #endif // GOALS_H
