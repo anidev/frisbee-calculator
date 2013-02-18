@@ -12,14 +12,16 @@ double simulate_flight(double vx0,double vy0,double angle,double dt,double heigh
 	double vx=vx0;
 	double vy=vy0;
 	double time=0;
-	for(int i=0;y<=height;i++) {
+	std::cout<<"k = "<<(drag*DENSITY*SURFAREA/mass)<<std::endl;
+//	for(int i=0;y<=height;i++) {
+	while(true) {
 		/*
 		 * dvx = delta x velocity, d = density, m = mass, A = surface area,
 		 *       D = drag coefficient, dt = delta time, v = previous x velocity
 		 *
 		 * dvx = (1/2m) * d * v^2 * A * D * dt 
 		 */
-		double dvx=(-1*drag*DENSITY*SURFAREA*pow(vx,2)/2.0/mass)*dt;
+		double dvx=(-1*drag*DENSITY*SURFAREA*(vx*vx)/2.0/mass)*dt;
 		/*
 		 * dvy = delta y velocity, d = density, g = gravity, m = mass, A = surface area,
 		 *       L = lift coefficient, dt = delta time, v = previous y velocity
@@ -31,8 +33,8 @@ double simulate_flight(double vx0,double vy0,double angle,double dt,double heigh
 		vy+=dvy;
 		x+=vx*dt;
 		y+=vy*dt;
-		if(y<0) {
-			return -1;
+		if((height>=0&&y>=height)||(height<0&&y<=height)) {
+			break;
 		}
 	}
 	return x;
